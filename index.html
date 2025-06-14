@@ -15,35 +15,30 @@
       padding: 20px;
     }
     h1 {
-      font-size: 2em;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
     .clock-container {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 30px;
       width: 100%;
       max-width: 100%;
     }
     .clock {
       background: #222;
-      padding: 30px;
+      padding: 40px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 0 10px #000;
     }
     .location {
-      font-size: 1.5em;
-      margin-bottom: 10px;
+      font-size: 2em;
+      margin-bottom: 15px;
     }
     .time {
-      font-size: 3em;
+      font-size: 4em;
       font-weight: bold;
-    }
-    .date {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #ccc;
     }
   </style>
 </head>
@@ -52,12 +47,10 @@
     <div class="clock" id="London">
       <div class="location">London</div>
       <div class="time">--:--</div>
-      <div class="date">--</div>
     </div>
     <div class="clock" id="Kochi">
       <div class="location">Kochi</div>
       <div class="time">--:--</div>
-      <div class="date">--</div>
     </div>
   </div>
 
@@ -77,16 +70,7 @@
           hour12: true
         });
 
-        const date = now.toLocaleDateString("en-US", {
-          timeZone: timezones[city],
-          weekday: 'short',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        });
-
         document.querySelector(`#${city} .time`).textContent = time;
-        document.querySelector(`#${city} .date`).textContent = date;
       }
     }
 
@@ -95,3 +79,4 @@
   </script>
 </body>
 </html>
+
