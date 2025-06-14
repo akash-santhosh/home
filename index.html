@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Timezone Clock</title>
   <style>
     body {
       font-family: sans-serif;
@@ -14,33 +15,34 @@
       padding: 20px;
     }
     h1 {
+      font-size: 2em;
       margin-bottom: 20px;
     }
     .clock-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr;
       gap: 20px;
       width: 100%;
-      max-width: 800px;
+      max-width: 100%;
     }
     .clock {
       background: #222;
-      padding: 20px;
+      padding: 30px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 0 10px #000;
     }
     .location {
-      font-size: 1.2em;
+      font-size: 1.5em;
       margin-bottom: 10px;
     }
     .time {
-      font-size: 1.5em;
+      font-size: 3em;
       font-weight: bold;
     }
     .date {
-      font-size: 1em;
-      margin-top: 5px;
+      font-size: 1.2em;
+      margin-top: 10px;
       color: #ccc;
     }
   </style>
@@ -49,12 +51,12 @@
   <div class="clock-container">
     <div class="clock" id="London">
       <div class="location">London</div>
-      <div class="time">--:--:--</div>
+      <div class="time">--:--</div>
       <div class="date">--</div>
     </div>
     <div class="clock" id="Kochi">
       <div class="location">Kochi</div>
-      <div class="time">--:--:--</div>
+      <div class="time">--:--</div>
       <div class="date">--</div>
     </div>
   </div>
@@ -72,7 +74,6 @@
           timeZone: timezones[city],
           hour: '2-digit',
           minute: '2-digit',
-          second: '2-digit',
           hour12: true
         });
 
@@ -90,7 +91,7 @@
     }
 
     setInterval(updateClocks, 1000);
-    updateClocks(); // initial call
+    updateClocks();
   </script>
 </body>
 </html>
